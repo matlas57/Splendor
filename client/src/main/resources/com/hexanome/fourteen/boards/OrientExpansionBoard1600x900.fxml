@@ -1,0 +1,1325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonType?>
+<?import javafx.scene.control.DialogPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="backgroundPane" minHeight="0.0" minWidth="0.0" prefHeight="900.0" prefWidth="1600.0" styleClass="anchor" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hexanome.fourteen.boards.GameBoard">
+   <stylesheets>
+      <URL value="@appStyling.css" />
+   </stylesheets>
+   <children>
+      <AnchorPane id="winningMessagePane" layoutX="334.0" layoutY="628.0" prefHeight="100.0" prefWidth="912.0">
+         <children>
+            <Label fx:id="winningPlayer" alignment="CENTER" contentDisplay="CENTER" prefHeight="63.0" prefWidth="914.0" style="-fx-background-color: #f8db85;" textFill="#72465b">
+               <font>
+                  <Font size="50.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Button id="takeFromBankButton" fx:id="tradingPostsButton" layoutX="65.0" layoutY="24.0" mnemonicParsing="false" onMouseEntered="#showTradingPostsMenu" onMouseExited="#hideTradingPostsMenu" prefHeight="40.0" prefWidth="189.0" style="-fx-background-color: #72465B; -fx-border-color: #72465B; -fx-background-radius: 10; -fx-border-radius: 10;" text="See Trading Posts" textFill="#f8db85">
+         <font>
+            <Font name="Satoshi Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button id="takeFromBankButton" fx:id="citiesButton" layoutX="65.0" layoutY="90.0" mnemonicParsing="false" onMouseEntered="#showAvailableCitiesMenu" onMouseExited="#hideAvailableCitiesMenu" prefHeight="40.0" prefWidth="189.0" style="-fx-background-color: #72465B; -fx-border-color: #72465B; -fx-background-radius: 10; -fx-border-radius: 10;" text="See Cities" textFill="#f8db85">
+         <font>
+            <Font name="Satoshi Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <HBox fx:id="myCityHBox" alignment="CENTER" layoutX="330.0" layoutY="10.0" prefHeight="148.0" prefWidth="414.0" visible="false">
+         <children>
+            <Button id="takeFromBankButton" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseEntered="#showMyCity" onMouseExited="#hideMyCity" prefHeight="48.0" prefWidth="95.0" style="-fx-background-color: #72465B; -fx-border-color: #72465B; -fx-background-radius: 10; -fx-border-radius: 10;" text="My City" textFill="#f8db85">
+               <font>
+                  <Font name="Satoshi Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <ImageView fitHeight="150.0" fitWidth="300.0" pickOnBounds="true">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </ImageView>
+         </children>
+      </HBox>
+      <Pane fx:id="noblesPane" layoutX="1303.0" layoutY="83.0" prefHeight="614.0" prefWidth="187.0" style="-fx-border-radius: 20;">
+         <children>
+            <VBox fx:id="publicNoblesVBox" alignment="TOP_CENTER" prefHeight="620.0" prefWidth="185.0" spacing="10.0" style="-fx-background-color: #F8DB85; -fx-border-radius: 20;">
+               <children>
+                  <Label text="Nobles" textAlignment="CENTER" textFill="#72465b">
+                     <font>
+                        <Font name="Satoshi Bold" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </VBox>
+         </children></Pane>
+      <Pane id="playersPane" fx:id="playersPane" layoutX="529.0" layoutY="-21.0" prefHeight="184.0" prefWidth="532.0" style="-fx-background-color: #F8DB85; -fx-background-radius: 20;" AnchorPane.topAnchor="-21.0">
+         <children>
+            <HBox fx:id="crownHBox" layoutX="47.0" layoutY="35.0" prefHeight="43.0" prefWidth="439.0" spacing="45.0">
+               <children>
+                  <ImageView fitHeight="34.0" fitWidth="76.0" pickOnBounds="true" visible="false">
+                     <image>
+                        <Image url="@images/crown.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fitHeight="34.0" fitWidth="76.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" visible="false">
+                     <image>
+                        <Image url="@images/crown.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fitHeight="34.0" fitWidth="76.0" layoutX="131.0" layoutY="10.0" pickOnBounds="true" visible="false">
+                     <image>
+                        <Image url="@images/crown.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fitHeight="34.0" fitWidth="76.0" layoutX="252.0" layoutY="10.0" pickOnBounds="true" visible="false">
+                     <image>
+                        <Image url="@images/crown.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Label fx:id="currentPlayerTurnLabel" alignment="CENTER" layoutX="166.0" layoutY="28.0" prefHeight="47.0" prefWidth="200.0" text="Billy's Turn" textAlignment="CENTER" textFill="#72465b">
+               <font>
+                  <Font name="Satoshi Bold" size="24.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" fillHeight="false" layoutX="48.0" layoutY="75.0" prefHeight="74.0" prefWidth="436.0" spacing="45.0">
+               <children>
+                  <BorderPane prefHeight="74.0" prefWidth="76.0">
+                     <center>
+                        <ImageView fx:id="playerView0" fitHeight="74.0" fitWidth="76.0" onMouseEntered="#createPlayerSummary" onMouseExited="#closePlayerSummary" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@images/tradingPosts/yellowPlayerShield.png" />
+                           </image>
+                           <effect>
+                              <DropShadow blurType="GAUSSIAN" color="#0048ff" height="50.0" radius="24.5" width="50.0" />
+                           </effect>
+                        </ImageView>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="74.0" prefWidth="76.0">
+                     <center>
+                        <ImageView fx:id="playerView1" fitHeight="74.0" fitWidth="76.0" onMouseEntered="#createPlayerSummary" onMouseExited="#closePlayerSummary" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@images/tradingPosts/blackPlayerShield.png" />
+                           </image>
+                        </ImageView>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="74.0" prefWidth="76.0">
+                     <center>
+                        <ImageView fx:id="playerView2" fitHeight="74.0" fitWidth="76.0" onMouseEntered="#createPlayerSummary" onMouseExited="#closePlayerSummary" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@images/tradingPosts/redPlayerShield.png" />
+                           </image>
+                        </ImageView>
+                     </center>
+                  </BorderPane>
+                  <BorderPane prefHeight="74.0" prefWidth="76.0">
+                     <center>
+                        <ImageView fx:id="playerView3" fitHeight="80.0" fitWidth="76.0" onMouseEntered="#createPlayerSummary" onMouseExited="#closePlayerSummary" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+                           <image>
+                              <Image url="@images/tradingPosts/bluePlayerShield.png" />
+                           </image>
+                        </ImageView>
+                     </center>
+                  </BorderPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="18.0" layoutY="155.0" minWidth="436.0" prefHeight="29.0" prefWidth="495.0" spacing="115.0">
+               <children>
+                  <Label fx:id="playerName0" text="hi">
+                     <font>
+                        <Font name="Satoshi Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerName1" text="hi">
+                     <font>
+                        <Font name="Satoshi Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerName2" text="hi">
+                     <font>
+                        <Font name="Satoshi Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="playerName3" text="hi">
+                     <font>
+                        <Font name="Satoshi Bold" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane id="bankPane" fx:id="bankPane" layoutX="29.0" layoutY="208.0" prefHeight="415.0" prefWidth="200.0" style="-fx-background-color: #F8DB85; -fx-background-radius: 20;" AnchorPane.leftAnchor="29.0">
+         <children>
+            <GridPane id="bankMatrix" fx:id="tokenBankMatrix" alignment="CENTER" layoutX="-1.0" layoutY="58.0" prefHeight="300.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="bGreenGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bWhiteGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bBlueGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="7" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bBlackGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bRedGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="bYellowGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+
+                  <Circle fill="#17ae4c" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#dfe8e2" layoutX="93.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Circle fill="#3d91ff" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Circle fill="#323232" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <Circle fill="#fc6060" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Circle fill="#fce410" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                  <Button fx:id="removeGreenButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleReturnGreenGemButton" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" />
+                  <Button fx:id="removeWhiteButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleReturnWhiteGemButton" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="1" />
+                  <Button fx:id="removeBlueButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleReturnBlueGemButton" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="2" />
+                  <Button fx:id="removeBlackButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleReturnBlackGemButton" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="3" />
+                  <Button fx:id="removeRedButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleReturnRedGemButton" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="4" />
+                  <Button fx:id="removeYellowButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleReturnYellowGemButton" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="5" />
+                  <Button fx:id="addGreenButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleTakeGreenGemButton" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" />
+                  <Button fx:id="addWhiteButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleTakeWhiteGemButton" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="addBlueButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleTakeBlueGemButton" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="addBlackButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleTakeBlackGemButton" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button fx:id="addRedButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleTakeRedGemButton" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="addYellowButton" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onAction="#handleTakeYellowGemButton" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="48.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Label alignment="CENTER" layoutX="67.0" layoutY="14.0" text="Bank" textFill="#72465b">
+               <font>
+                  <Font name="Satoshi Bold" size="32.0" />
+               </font>
+            </Label>
+            <Button id="takeFromBankButton" fx:id="openBankButton" layoutX="59.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleClickOpenBankButton" prefHeight="40.0" prefWidth="84.0" style="-fx-background-color: #72465B; -fx-border-color: #72465B; -fx-background-radius: 10; -fx-border-radius: 10;" text="Open" textFill="#f8db85">
+               <font>
+                  <Font name="Satoshi Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </Pane>
+      <AnchorPane fx:id="reservedPane" layoutX="30.0" layoutY="710.0" prefHeight="261.0" prefWidth="468.0" AnchorPane.bottomAnchor="-90.0" AnchorPane.leftAnchor="30.0">
+         <children>
+            <Pane opacity="0.8" prefHeight="261.0" prefWidth="468.0" style="-fx-background-color: #E79DB3; -fx-background-radius: 30;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <Pane layoutX="52.0" layoutY="62.0" onMouseClicked="#handleReservedNoblesPaneSelect" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #E2A6FF; -fx-background-radius: 10;" AnchorPane.leftAnchor="53.0" />
+            <Label alignment="CENTER" layoutX="150.0" layoutY="5.0" prefHeight="47.0" prefWidth="174.0" text="Reserved" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Satoshi Bold" size="24.0" />
+               </font>
+            </Label>
+            <Pane layoutX="215.0" layoutY="61.0" onMouseClicked="#handleReservedCardsPaneSelect" prefHeight="200.0" prefWidth="200.0" AnchorPane.rightAnchor="53.0">
+               <children>
+                  <Pane layoutX="80.0" layoutY="30.0" prefHeight="148.0" prefWidth="120.0" style="-fx-background-color: #C4E5BA; -fx-background-radius: 10;" />
+                  <Pane layoutY="30.0" prefHeight="146.0" prefWidth="120.0" style="-fx-background-color: #DEF0FC; -fx-background-radius: 10;" />
+                  <Pane layoutX="40.0" layoutY="-1.0" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: #F8F9CF; -fx-background-radius: 10;">
+                     <children>
+                        <ImageView fx:id="reservedStack" fitHeight="164.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane fx:id="purchasedPane" layoutX="40.0" layoutY="720.0" prefHeight="261.0" prefWidth="454.0" AnchorPane.bottomAnchor="-90.0" AnchorPane.rightAnchor="30.0">
+         <children>
+            <Pane layoutY="1.0" opacity="0.8" prefHeight="261.0" prefWidth="468.0" style="-fx-background-color: #5A9BD7; -fx-background-radius: 40;" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="1.0" />
+            <Pane onMouseClicked="#handlePurchasedPaneSelect" prefHeight="200.0" prefWidth="200.0" AnchorPane.leftAnchor="53.0" AnchorPane.topAnchor="62.0">
+               <children>
+                  <Pane layoutX="80.0" layoutY="30.0" prefHeight="148.0" prefWidth="120.0" style="-fx-background-color: #C4E5BA; -fx-background-radius: 10;" />
+                  <Pane layoutY="30.0" prefHeight="146.0" prefWidth="120.0" style="-fx-background-color: #DEF0FC; -fx-background-radius: 10;" />
+                  <Pane layoutX="40.0" layoutY="-1.0" prefHeight="170.0" prefWidth="120.0" style="-fx-background-color: #F8F9CF; -fx-background-radius: 10;">
+                     <children>
+                        <ImageView fx:id="purchasedStack" fitHeight="164.0" fitWidth="119.0" pickOnBounds="true" preserveRatio="true" />
+                     </children></Pane>
+               </children>
+            </Pane>
+            <Pane layoutX="52.0" layoutY="62.0" onMouseClicked="#handleAcquiredNoblesViewSelect" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #E2A6FF; -fx-background-radius: 10;" AnchorPane.rightAnchor="53.0">
+               <children>
+                  <ImageView fx:id="noblesStack" fitHeight="120.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <Label alignment="CENTER" layoutX="150.0" layoutY="5.0" prefHeight="47.0" prefWidth="174.0" text="Purchased" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Satoshi Bold" size="24.0" />
+               </font>
+            </Label>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </AnchorPane>
+      <AnchorPane fx:id="tokenInventoryPane" layoutX="577.0" layoutY="740.0" AnchorPane.bottomAnchor="25.0">
+         <children>
+            <Label alignment="CENTER" layoutX="145.0" layoutY="-1.0" text="Owned Gems" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="Satoshi Regular" size="24.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="tokenMatrix" layoutX="4.0" layoutY="2.0" prefHeight="115.0" prefWidth="428.0" AnchorPane.topAnchor="20.0">
+               <children>
+                  <Circle fill="#17ae4c" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#dfe8e2" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#3d91ff" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#323232" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#fc6060" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#fce410" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label fx:id="pGreenGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="2" textAlignment="CENTER" textFill="WHITE" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pWhiteGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="1" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pBlueGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="2" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pBlackGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="1" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pRedGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="pYellowGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="1" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="98.0" minHeight="10.0" prefHeight="81.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="57.0" minHeight="1.0" prefHeight="50.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </AnchorPane>
+      <GridPane fx:id="cardMatrix" alignment="CENTER" hgap="10.0" layoutX="350.0" layoutY="200.0" prefHeight="430.0" prefWidth="887.0" vgap="10.0" AnchorPane.topAnchor="200.0">
+        <columnConstraints>
+          <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints fillWidth="false" halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints fillHeight="false" minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Pane fx:id="level3CardStack" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #DEF0FC; -fx-background-radius: 10;">
+               <children>
+                  <Label layoutX="44.0" layoutY="49.0" text="III">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+            <Pane fx:id="level2CardStack" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #C4E5BA; -fx-background-radius: 10;" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="47.0" layoutY="49.0" text="II">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+            <Pane fx:id="level1CardStack" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #F8F9CF; -fx-background-radius: 10;" GridPane.rowIndex="2">
+               <children>
+                  <Label layoutX="50.0" layoutY="48.0" text="I">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+            <Pane fx:id="level1CardStackO" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #fa8484; -fx-background-radius: 10;" GridPane.columnIndex="7" GridPane.rowIndex="2">
+               <children>
+                  <Label layoutX="50.0" layoutY="48.0" text="I">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+            <Pane fx:id="level2CardStackO" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #fa8484; -fx-background-radius: 10;" GridPane.columnIndex="7" GridPane.rowIndex="1">
+               <children>
+                  <Label layoutX="47.0" layoutY="49.0" text="II">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+            <Pane fx:id="level3CardStackO" prefHeight="164.0" prefWidth="119.0" style="-fx-background-color: #fa8484; -fx-background-radius: 10;" GridPane.columnIndex="7">
+               <children>
+                  <Label layoutX="44.0" layoutY="49.0" text="III">
+                     <font>
+                        <Font size="30.0" />
+                     </font>
+                  </Label>
+               </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <InnerShadow />
+               </effect>
+            </Pane>
+            <ImageView fx:id="R3C1" fitHeight="137.0" fitWidth="119.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+            </ImageView>
+            <ImageView fx:id="R3C2" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
+            </ImageView>
+            <ImageView fx:id="R3C3" fitHeight="137.0" fitWidth="97.0" layoutX="3.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
+            </ImageView>
+            <ImageView fx:id="R3C4" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
+            </ImageView>
+            <ImageView fx:id="R3C5" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5">
+            </ImageView>
+            <ImageView fx:id="R3C6" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6">
+            </ImageView>
+            <ImageView fx:id="R2C1" fitHeight="137.0" fitWidth="97.0" layoutX="3.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            </ImageView>
+            <ImageView fx:id="R2C2" fitHeight="137.0" fitWidth="99.0" layoutX="3.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            </ImageView>
+            <ImageView fx:id="R2C3" fitHeight="137.0" fitWidth="102.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            </ImageView>
+            <ImageView fx:id="R2C4" fitHeight="137.0" fitWidth="102.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            </ImageView>
+            <ImageView fx:id="R2C5" fitHeight="137.0" fitWidth="98.0" layoutX="3.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            </ImageView>
+            <ImageView fx:id="R2C6" fitHeight="137.0" fitWidth="97.0" layoutX="3.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="1">
+            </ImageView>
+            <ImageView fx:id="R1C1" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            </ImageView>
+            <ImageView fx:id="R1C2" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            </ImageView>
+            <ImageView fx:id="R1C3" fitHeight="137.0" fitWidth="98.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            </ImageView>
+            <ImageView fx:id="R1C4" fitHeight="137.0" fitWidth="98.0" layoutX="3.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            </ImageView>
+            <ImageView fx:id="R1C5" fitHeight="137.0" fitWidth="102.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            </ImageView>
+            <ImageView fx:id="R1C6" fitHeight="137.0" fitWidth="102.0" layoutX="2.0" onMouseClicked="#handleCardSelect" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="6" GridPane.rowIndex="2">
+            </ImageView>
+         </children>
+      </GridPane>
+      <Pane id="bankPane" fx:id="takenTokenPane" layoutX="234.0" layoutY="187.0" prefHeight="390.0" prefWidth="101.0" style="-fx-background-color: #F8DB85; -fx-background-radius: 20;">
+         <children>
+            <GridPane id="bankMatrix" fx:id="takenTokenMatrix" alignment="CENTER" layoutX="22.0" layoutY="75.0" prefHeight="300.0" prefWidth="49.0">
+               <children>
+                  <Label fx:id="takenGreenGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="takenWhiteGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="takenBlueGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="7" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="takenBlackGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="takenRedGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="33.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+            <Label alignment="CENTER" layoutX="7.0" layoutY="10.0" prefHeight="64.0" prefWidth="87.0" text="Gems taken" textAlignment="CENTER" textFill="#72465b" wrapText="true">
+               <font>
+                  <Font name="Satoshi Bold" size="24.0" />
+               </font>
+            </Label>
+            <Button id="takeFromBankButton" fx:id="takeBankButton" layoutX="13.0" layoutY="340.0" mnemonicParsing="false" onAction="#handleClickTakeBankButton" prefHeight="40.0" prefWidth="75.0" style="-fx-background-color: #72465B; -fx-border-color: #72465B; -fx-background-radius: 10; -fx-border-radius: 10;" text="Take" textFill="#f8db85">
+               <font>
+                  <Font name="Satoshi Bold" size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="menuButton" contentDisplay="RIGHT" layoutX="1465.0" layoutY="8.0" mnemonicParsing="false" onAction="#handleClickMenuButton" style="-fx-background-color: #F8DB85;" text="Menu" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/settings_gear.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="Satoshi Black" size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="OPEN_HAND" />
+         </cursor>
+      </Button>
+      <Pane fx:id="menuPopupPane" prefHeight="900.0" prefWidth="1600.0" style="-fx-background-color: #F8DB85; -fx-opacity: 1;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" layoutX="612.0" layoutY="283.0" prefHeight="270.0" prefWidth="378.0" spacing="25.0">
+               <children>
+                  <Label text="Menu">
+                     <font>
+                        <Font name="Satoshi Black" size="70.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="menuPopupBackButton" mnemonicParsing="false" onAction="#handleClickMenuPopupBackButton" style="-fx-background-color: #72465B;" text="Return to Game" textFill="#f8db85">
+                     <font>
+                        <Font name="Satoshi Black" size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="menuPopupSaveButton" mnemonicParsing="false" onAction="#handleClickMenuPopupSaveButton" style="-fx-background-color: #2b71d9;" text="Save" textFill="#f8db85">
+                     <font>
+                        <Font name="Satoshi Black" size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="menuPopupQuitButton" mnemonicParsing="false" onAction="#handleClickMenuPopupQuitButton" style="-fx-background-color: #b82e70;" text="Quit" textFill="#f8db85">
+                     <font>
+                        <Font name="Satoshi Black" size="30.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+
+      </Pane>
+      <AnchorPane fx:id="cardActionMenu" layoutX="440.0" layoutY="80.0" prefHeight="556.0" prefWidth="700.0" visible="false">
+         <children>
+            <Pane layoutX="456.0" prefHeight="600.0" prefWidth="700.0" style="-fx-background-color: #faecc0; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <BorderPane prefHeight="600.0" prefWidth="700.0">
+               <center>
+                  <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <ImageView fx:id="cardActionImage" fitHeight="250.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+                        <Button fx:id="cardReserveButton" mnemonicParsing="false" onAction="#handleReserve" style="-fx-background-color: #fc6060;" text="Reserve" textFill="WHITE">
+                           <font>
+                              <Font name="Satoshi Black" size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button fx:id="cardPurchaseButton" mnemonicParsing="false" onAction="#handlePurchase" style="-fx-background-color: #5A9BD7;" text="Purchase" textFill="WHITE">
+                           <font>
+                              <Font name="Satoshi Black" size="30.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </VBox>
+               </center>
+               <top>
+                  <Label text="Card Actions" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font name="Satoshi Black" size="70.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </top>
+            </BorderPane>
+            <Button fx:id="exitCardActionMenu" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleExitCardMenu" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <font>
+                  <Font name="Satoshi Black" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close_x.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <GridPane id="bankMatrix" fx:id="tokenActionMatrix" alignment="CENTER" prefHeight="300.0" prefWidth="200.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="20.0">
+               <children>
+                  <Label fx:id="actionGreenGemLabel" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="actionWhiteGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="actionBlueGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="7" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="actionBlackGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="actionRedGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="actionYellowGemLabel" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#17ae4c" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#dfe8e2" layoutX="93.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Circle fill="#3d91ff" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Circle fill="#323232" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <Circle fill="#fc6060" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Circle fill="#fce410" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                  <Button fx:id="removeGreenButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" />
+                  <Button fx:id="removeWhiteButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="1" />
+                  <Button fx:id="removeBlueButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="2" />
+                  <Button fx:id="removeBlackButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="3" />
+                  <Button fx:id="removeRedButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="4" />
+                  <Button fx:id="removeYellowButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" visible="false" GridPane.rowIndex="5" />
+                  <Button fx:id="addGreenButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" />
+                  <Button fx:id="addWhiteButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button fx:id="addBlueButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button fx:id="addBlackButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button fx:id="addRedButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button fx:id="addYellowButton1" maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" visible="false" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="48.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </children>
+      </AnchorPane>
+
+      <AnchorPane fx:id="reservedCardsView" layoutX="342.0" layoutY="96.0" prefHeight="574.0" prefWidth="899.0" visible="false">
+         <children>
+            <Pane layoutX="-1.0" prefHeight="574.0" prefWidth="937.0" style="-fx-background-color: #faecc0; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.leftAnchor="-1.0" AnchorPane.topAnchor="0.0" />
+            <BorderPane fx:id="reservedBorderPane" layoutX="27.0" prefHeight="497.0" prefWidth="849.0">
+               <top>
+                  <VBox alignment="TOP_CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <Label text="Reserved Cards" textAlignment="CENTER">
+                           <font>
+                              <Font name="Satoshi Black" size="70.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </top>
+               <padding>
+                  <Insets bottom="100.0" left="100.0" right="100.0" top="20.0" />
+               </padding>
+               <center>
+                  <VBox fx:id="reservedCardsVBox" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+            <Button fx:id="exitReservedCardsView" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleExitActionMenu" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <font>
+                  <Font name="Satoshi Black" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close_x.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+      <BorderPane fx:id="reservedNoblesView" layoutX="410.0" layoutY="178.0" prefHeight="563.0" prefWidth="772.0" style="-fx-background-color: #faecc0; -fx-border-color: #000000; -fx-border-width: 5;" visible="false">
+         <top>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="TOP_RIGHT">
+               <children>
+                  <Label text="Reserved Nobles" textAlignment="CENTER" textFill="#72465b">
+                     <font>
+                        <Font name="Satoshi Bold" size="45.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="150.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="exitAcquiredNoblesView" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleExitActionMenu" style="-fx-background-color: transparent;">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Satoshi Black" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/close_x.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </top></BorderPane>
+      <BorderPane fx:id="acquiredNoblesView" layoutX="410.0" layoutY="178.0" prefHeight="563.0" prefWidth="772.0" style="-fx-background-color: #faecc0; -fx-border-color: #000000; -fx-border-width: 5;" visible="false">
+         <top>
+            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="TOP_RIGHT">
+               <children>
+                  <Label text="Acquired Nobles" textAlignment="CENTER" textFill="#72465b">
+                     <font>
+                        <Font name="Satoshi Bold" size="45.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="150.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Button fx:id="exitAcquiredNoblesView" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleExitActionMenu" style="-fx-background-color: transparent;">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="Satoshi Black" size="20.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/close_x.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </HBox>
+         </top></BorderPane>
+      <AnchorPane fx:id="purchasedCardsView" layoutX="159.0" layoutY="81.0" prefHeight="636.0" prefWidth="1240.0" visible="false">
+         <children>
+            <Pane layoutX="456.0" prefHeight="701.0" prefWidth="1240.0" style="-fx-background-color: #faecc0; -fx-border-color: #000000; -fx-border-width: 5;" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <BorderPane fx:id="purchasedBorderPane" layoutX="10.0" layoutY="-5.0" prefHeight="701.0" prefWidth="1235.0">
+                     <top>
+                        <VBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+                           <children>
+                              <Label text="Purchased Cards">
+                                 <font>
+                                    <Font name="Satoshi Black" size="70.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </top>
+                     <padding>
+                        <Insets bottom="30.0" left="30.0" right="30.0" top="15.0" />
+                     </padding>
+                  </BorderPane>
+               </children></Pane>
+            <Button fx:id="exitPurchasedCardsView" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#handleExitActionMenu" style="-fx-background-color: transparent;" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+               <font>
+                  <Font name="Satoshi Black" size="20.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/close_x.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </AnchorPane>
+
+      <DialogPane fx:id="acquiredNobleAlertPane" layoutX="500.0" layoutY="300.0" prefHeight="143.0" prefWidth="584.0" style="-fx-background-color: #faecc0; -fx-border-width: 5; -fx-border-color: #000000;" visible="false">
+         <ButtonType fx:constant="FINISH" />
+         <header>
+            <Label alignment="TOP_CENTER" text="Noble Acquired!" textAlignment="CENTER" textFill="#72465b">
+               <font>
+                  <Font name="Satoshi Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+         </header>
+      </DialogPane>
+      <BorderPane fx:id="playerSummaryPane" layoutX="468.0" layoutY="200.0" prefHeight="530.0" prefWidth="654.0" style="-fx-background-color: #faecc0; -fx-border-color: #000000; -fx-border-width: 5;" visible="false">
+         <top>
+            <Label fx:id="playerSummaryUserLabel" text="Player Info" textAlignment="CENTER" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="28.0" />
+               </font>
+            </Label>
+         </top>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <center>
+            <HBox fx:id="playerSummaryHBox" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox fx:id="discountVBox" alignment="CENTER" prefHeight="304.0" prefWidth="160.0">
+                     <children>
+                        <Label text="Discounts/Bonuses" />
+                        <GridPane id="bankMatrix" fx:id="discountSummary" alignment="CENTER" prefHeight="300.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="summaryGreenAmt" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryWhiteAmt" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryBlueAmt" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="7" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryBlackAmt" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryRedAmt" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryGoldAmt" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Circle fill="#17ae4c" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fill="#dfe8e2" layoutX="93.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fill="#3d91ff" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fill="#323232" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fill="#fc6060" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fill="#fce410" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="33.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="gemVBox" alignment="CENTER" prefHeight="304.0" prefWidth="160.0">
+                     <children>
+                        <Label text="Current Gems" />
+                        <GridPane id="bankMatrix" fx:id="gemSummary" alignment="CENTER" prefHeight="300.0" prefWidth="200.0">
+                           <children>
+                              <Label fx:id="summaryGreenAmt1" alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryWhiteAmt1" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryBlueAmt1" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="7" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryBlackAmt1" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryRedAmt1" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="summaryGoldAmt1" alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="Satoshi Black" size="24.0" />
+                                 </font>
+                              </Label>
+                              <Circle fill="#17ae4c" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                              <Circle fill="#dfe8e2" layoutX="93.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <Circle fill="#3d91ff" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                              <Circle fill="#323232" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                              <Circle fill="#fc6060" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                              <Circle fill="#fce410" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="33.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                     <children>
+                        <Label text="Reserved Cards">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox fx:id="reservedSummary" prefHeight="100.0" prefWidth="250.0" />
+                        <Label text="Acquired Nobles">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <HBox fx:id="noblesSummary" prefHeight="100.0" prefWidth="250.0" />
+                        <Label fx:id="citySummaryLabel" text="Acquired City" visible="false">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="citySummaryImage" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" visible="false" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+      <DialogPane fx:id="waterfallPane" layoutX="500.0" layoutY="300.0" prefHeight="143.0" prefWidth="584.0" style="-fx-background-color: #faecc0; -fx-border-width: 5; -fx-border-color: #000000;" visible="false">
+         <ButtonType fx:constant="FINISH" />
+         <header>
+            <VBox fx:id="waterfallVBox" alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label fx:id="waterfallPaneTitle" alignment="TOP_CENTER" text="Waterfall Effect!" textAlignment="CENTER" textFill="#72465b">
+                     <font>
+                        <Font name="Satoshi Bold" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="waterfallPaneSubtitle" text="Select one of the following cards to acquire." />
+               </children>
+            </VBox>
+         </header>
+      </DialogPane>
+      <DialogPane fx:id="discardTokenPane" layoutX="508.0" layoutY="168.0" prefHeight="520.0" prefWidth="584.0" style="-fx-background-color: #faecc0; -fx-border-width: 5; -fx-border-color: #000000;" visible="false">
+         <header>
+            <VBox alignment="CENTER" spacing="5.0">
+               <children>
+                  <Label alignment="TOP_CENTER" text="Too Many Gems!" textAlignment="CENTER" textFill="#72465b">
+                     <font>
+                        <Font name="Satoshi Bold" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label fx:id="discardTokenLabel" text="Select 3 gems to discard" />
+               </children>
+            </VBox>
+         </header>
+         <content>
+            <GridPane id="bankMatrix" fx:id="discardTokenGrid" alignment="CENTER" prefHeight="300.0" prefWidth="574.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="7" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" layoutX="10.0" layoutY="15.0" prefHeight="35.0" prefWidth="53.0" text="3" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Satoshi Black" size="24.0" />
+                     </font>
+                  </Label>
+                  <Circle fill="#17ae4c" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Circle fill="#dfe8e2" layoutX="93.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Circle fill="#3d91ff" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <Circle fill="#323232" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                  <Circle fill="#fc6060" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                  <Circle fill="#fce410" layoutX="30.0" layoutY="32.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="-" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.rowIndex="1" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.rowIndex="2" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.rowIndex="3" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.rowIndex="4" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="-" GridPane.rowIndex="5" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.columnIndex="3" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button maxHeight="25.0" maxWidth="25.0" mnemonicParsing="false" onMouseClicked="#handleDiscardGems" prefHeight="25.0" prefWidth="25.0" text="+" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="69.0" minWidth="10.0" prefWidth="33.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="80.0" minWidth="10.0" prefWidth="48.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+            </GridPane>
+         </content>
+         <buttonTypes>
+            <ButtonType fx:constant="FINISH" />
+         </buttonTypes>
+      </DialogPane>
+   </children>
+
+   <fx:define>
+      <java.util.ArrayList fx:id="pGemLabels">
+         <fx:reference source="pGreenGemLabel" />
+         <fx:reference source="pWhiteGemLabel" />
+         <fx:reference source="pBlueGemLabel" />
+         <fx:reference source="pBlackGemLabel" />
+         <fx:reference source="pRedGemLabel" />
+         <fx:reference source="pYellowGemLabel" />
+      </java.util.ArrayList>
+   </fx:define>
+
+   <fx:define>
+      <java.util.ArrayList fx:id="bGemLabels">
+         <fx:reference source="bGreenGemLabel" />
+         <fx:reference source="bWhiteGemLabel" />
+         <fx:reference source="bBlueGemLabel" />
+         <fx:reference source="bBlackGemLabel" />
+         <fx:reference source="bRedGemLabel" />
+         <fx:reference source="bYellowGemLabel" />
+      </java.util.ArrayList>
+   </fx:define>
+
+   <fx:define>
+      <java.util.ArrayList fx:id="actionGemLabels">
+         <fx:reference source="actionGreenGemLabel" />
+         <fx:reference source="actionWhiteGemLabel" />
+         <fx:reference source="actionBlueGemLabel" />
+         <fx:reference source="actionBlackGemLabel" />
+         <fx:reference source="actionRedGemLabel" />
+         <fx:reference source="actionYellowGemLabel" />
+      </java.util.ArrayList>
+   </fx:define>
+
+   <fx:define>
+      <java.util.ArrayList fx:id="removeGemButtons">
+         <fx:reference source="removeGreenButton" />
+         <fx:reference source="removeWhiteButton" />
+         <fx:reference source="removeBlueButton" />
+         <fx:reference source="removeBlackButton" />
+         <fx:reference source="removeRedButton" />
+         <fx:reference source="removeYellowButton" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="addGemButtons">
+         <fx:reference source="addGreenButton" />
+         <fx:reference source="addWhiteButton" />
+         <fx:reference source="addBlueButton" />
+         <fx:reference source="addBlackButton" />
+         <fx:reference source="addRedButton" />
+         <fx:reference source="addYellowButton" />
+      </java.util.ArrayList>
+   </fx:define>
+
+   <fx:define>
+      <java.util.ArrayList fx:id="level3CardViewsBase">
+         <fx:reference source="R3C1" />
+         <fx:reference source="R3C2" />
+         <fx:reference source="R3C3" />
+         <fx:reference source="R3C4" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="level2CardViewsBase">
+         <fx:reference source="R2C1" />
+         <fx:reference source="R2C2" />
+         <fx:reference source="R2C3" />
+         <fx:reference source="R2C4" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="level1CardViewsBase">
+         <fx:reference source="R1C1" />
+         <fx:reference source="R1C2" />
+         <fx:reference source="R1C3" />
+         <fx:reference source="R1C4" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="level3CardViewsOrient">
+         <fx:reference source="R3C5" />
+         <fx:reference source="R3C6" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="level2CardViewsOrient">
+         <fx:reference source="R2C5" />
+         <fx:reference source="R2C6" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="level1CardViewsOrient">
+         <fx:reference source="R1C5" />
+         <fx:reference source="R1C6" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="cardViews">
+         <fx:reference source="level1CardViewsBase" />
+         <fx:reference source="level2CardViewsBase" />
+         <fx:reference source="level3CardViewsBase" />
+         <fx:reference source="level1CardViewsOrient" />
+         <fx:reference source="level2CardViewsOrient" />
+         <fx:reference source="level3CardViewsOrient" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="takenTokenLabels">
+         <fx:reference source="takenGreenGemLabel" />
+         <fx:reference source="takenWhiteGemLabel" />
+         <fx:reference source="takenBlueGemLabel" />
+         <fx:reference source="takenBlackGemLabel" />
+         <fx:reference source="takenRedGemLabel" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="playerViews">
+         <fx:reference source="playerView0" />
+         <fx:reference source="playerView1" />
+         <fx:reference source="playerView2" />
+         <fx:reference source="playerView3" />
+      </java.util.ArrayList>
+   </fx:define>
+   <fx:define>
+      <java.util.ArrayList fx:id="playerNameLabels">
+         <fx:reference source="playerName0" />
+         <fx:reference source="playerName1" />
+         <fx:reference source="playerName2" />
+         <fx:reference source="playerName3" />
+      </java.util.ArrayList>
+   </fx:define>
+
+</AnchorPane>

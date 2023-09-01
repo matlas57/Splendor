@@ -1,0 +1,85 @@
+/* GLOBAL BACKGROUND STYLES */
+#anchorPane {
+    /*
+    -fx-background-color: linear-gradient(to bottom right,#E7E7E7, lightsteelblue);
+    */
+    -fx-background-color: #F8DB85
+}
+
+/* LOCAL BACKGROUND STYLES */
+#choiceSelectAnchor {
+    -fx-background-image: url('images/lobby_background.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+#stdOpacityPane {
+    -fx-background-color: grey;
+    -fx-opacity: 30%;
+    -fx-background-radius: 30 30 30 30;
+}
+
+#textOpacityPane {
+    -fx-background-color: #F3F6F9;
+    -fx-background-radius: 30 30 30 30;
+}
+
+/* GLOBAL TEXT STYLES */
+.textFill {
+    -fx-background-color: #464E5F;
+}
+
+/* GLOBAL BUTTON STYLES */
+.button:hover {
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+    -fx-scale-z: 1.1;
+}
+
+.button:pressed {
+    -fx-background-insets: 2;
+}
+
+.button {
+    -fx-background-color: gray;
+    -fx-background-radius: 20 20 20 20;
+}
+
+.toggle-button {
+    -fx-background-color: darkgrey;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-color: grey;
+    -fx-border-radius: 10 10 10 10;
+}
+
+.toggle-button:selected {
+    -fx-background-color: #00D23B;
+    -fx-background-radius: 10 10 10 10;
+    -fx-border-color: lightgrey;
+    -fx-border-radius: 10 10 10 10;
+}
+
+/* LOCAL BUTTON STYLES */
+#newGameButton, #joinLobbyButton {
+    -fx-background-color: #00D23B;
+    -fx-background-radius: 20 20 20 20;
+}
+
+#createGameButton, #createLobbyButton, #launchLobbyButton, #joinLobbyButton {
+    -fx-background-color: #3699FF;
+    -fx-background-radius: 20 20 20 20;
+}
+
+#joinGameButton {
+    -fx-background-color: #3699FF;
+    -fx-background-radius: 20 20 20 20;
+}
+
+#quitButton {
+    -fx-background-color: #F64E60;
+    -fx-background-radius: 20 20 20 20;
+}
+
+#backButton, #leaveLobbyButton {
+    -fx-background-color: #F64E60;
+    -fx-background-radius: 10 10 10 10;
+}

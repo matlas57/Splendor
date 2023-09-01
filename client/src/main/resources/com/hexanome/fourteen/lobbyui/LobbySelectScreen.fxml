@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="anchorPane" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.hexanome.fourteen.lobbyui.LobbySelectScreenController">
+   <children>
+      <Button fx:id="backButton" layoutX="20.0" layoutY="21.0" mnemonicParsing="false" onAction="#handleBackButton" onMouseClicked="#handleBackButton" text="Back">
+         <font>
+            <Font name="Satoshi Bold" size="24.0" />
+         </font></Button>
+      <Pane id="textOpacityPane" layoutX="487.0" layoutY="29.0" prefHeight="70.0" prefWidth="220.0">
+         <children>
+            <Text layoutX="25.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lobby Search">
+               <font>
+                  <Font name="Satoshi Bold" size="26.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <Pane id="textOpacityPane" layoutX="75.0" layoutY="121.0" prefHeight="70.0" prefWidth="1047.0">
+         <children>
+            <Text layoutX="37.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms">
+               <font>
+                  <Font name="Satoshi Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="901.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status">
+               <font>
+                  <Font name="Satoshi Italic" size="26.0" />
+               </font>
+            </Text>
+            <Text layoutX="617.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expansions">
+               <font>
+                  <Font name="Satoshi Italic" size="26.0" />
+               </font>
+            </Text>
+         </children></Pane>
+      <ScrollPane fx:id="lobbyScrollView" hbarPolicy="NEVER" layoutX="76.0" layoutY="222.0" prefHeight="388.0" prefWidth="1045.0" vbarPolicy="ALWAYS">
+         <content>
+            <VBox fx:id="lobbyVBox" prefWidth="1025.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
