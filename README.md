@@ -1,25 +1,7 @@
 # COMP 361 Project
 
-> See also [my video instuctions](https://www.cs.mcgill.ca/~mschie3/COMP361/Repository-Best-Practices.mp4) in the
-> screencasts section on MyCourses.
-
-## The Rules
-
-* Feel free to edit/replace this file.
-* Do not delete or rename the [reports](reports), [client](client), [server](server) or [docs](docs) directories.  
-  See [Static Content](#static-content)
-* Don't clutter your repo, update your [```.gitignore```](.gitignore) file, depending on your client language /
-  technology.
-    * Don't commit binaries. (Images, jar files, class files, etc...)
-    * Don't commit buffer files. (Vim buffer files, IDE meta files etc...)
-* Place your documentation in [```docs```](docs) on [master](branch).
-* Commit frequently, commit fine grained.
-* Use branches
-* **Don't push on master!**
-    * Create a new branch for your feature.
-    * Work until stable / tested.
-    * Merge / rebase your temporary branch back to master.
-    * Delete your temporary branch.
+## Notice
+You may notice that this repository has few commits and contributors, this is because I had to clone and republish the repository for it to be public because it was created by my professor in university. I am writing this note to explicitly state that I was not the only one who contributed to this code and give credit to my colleagues who are mentioned below.
 
 ## Static content
 
